@@ -13,29 +13,29 @@
    <md-card-title>Sign Up</md-card-title>   
    <md-card-content>
         
-     <form>
+     <form #signupForm="ngForm" novalidate (ngSubmit)="signup(signupForm.value, signupForm.valid)">
       <md-input-container style="width: 90%">
-        <input md-input placeholder="Email" value="" [(ngModel)]="signupEmail">
+        <input md-input placeholder="Email" value="" [(ngModel)]="user.email" name="signupEmail" class="form-control" required>
       </md-input-container>
 
       <table style="width: 100%" cellspacing="0"><tr>
         <td><md-input-container style="width: 80%">
-          <input md-input placeholder="First name" [(ngModel)]="signupFirstName">
+          <input md-input placeholder="First name" [(ngModel)]="user.firstName" name="signupFirstName" required>
         </md-input-container></td>
         <td><md-input-container style="width: 80%">
-          <input md-input placeholder="Last Name" [(ngModel)]="signupLastName">
+          <input md-input placeholder="Last Name" [(ngModel)]="user.lastName" name="signupLastName" required>
         </md-input-container></td>
       </tr></table>
 
       <md-input-container style="width: 90%">
-        <input md-input placeholder="Password" value="" [(ngModel)]="signupPassword">
+        <input md-input placeholder="Password" value="" [(ngModel)]="user.password" name="signupPassword" required>
       </md-input-container>
 
     </form>
 
    </md-card-content>
    <md-card-actions>
-        <button md-button md-raised>Sign Up</button>
+        <button md-button md-raised type="submit">Sign Up</button>
    </md-card-actions>
 </md-card>
 
@@ -43,21 +43,21 @@
    <md-card-title>Login</md-card-title>   
    <md-card-content>
 
-      <form>
+      <form #loginForm="ngForm" novalidate (ngSubmit)="save(loginForm.value, loginForm.valid)">
         <md-input-container style="width: 80%">
-          <input md-input placeholder="Email" value="" [(ngModel)]="loginEmail">
+          <input md-input placeholder="Email" value="" [(ngModel)]="loginUser.email" name="loginEmail" required>
         </md-input-container>
 
         <br />
 
         <md-input-container style="width: 80%">
-          <input md-input placeholder="Password" value="" [(ngModel)]="loginPassword">
+          <input md-input placeholder="Password" value="" [(ngModel)]="loginUser.password" name="loginPassword" required>
         </md-input-container>
 
       </form>
 
    </md-card-content>
    <md-card-actions>
-        <button md-button md-raised>Login</button>
+        <button md-button md-raised type="submit">Login</button>
    </md-card-actions>
 </md-card>

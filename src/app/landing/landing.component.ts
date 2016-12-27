@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LandingService } from './landing.service'
+import { User } from './user'
 
 @Component({
   selector: 'app-landing',
@@ -8,13 +9,11 @@ import { LandingService } from './landing.service'
 })
 export class LandingComponent implements OnInit {
 
-  private _signupPassword: string = ''
-  private _signupEmail: string = ''
-  private _signupFirstName: string = ''
-  private _signupLastName: string = ''
-  private _frequency: number = 1
-  private _imageUrl: string = ''
-  private _category: string = ''
+  private user:User;
+  private loginUser = {
+    email: '',
+    password: ''
+  }
 
   private _loginEmail: string = ''
   private _loginPassword: string = ''
@@ -22,18 +21,30 @@ export class LandingComponent implements OnInit {
   constructor(private _landingService: LandingService) { }
 
   signup() {
-    let firstName = this._signupFirstName
-    let lastName = this._signupLastName
-    let email = this._signupEmail
-    let password = this._signupPassword
-    let frequency = this._frequency
-    let imageUrl = this._imageUrl
-    let category = this._category
+    let firstName = this.user.firstName
+    let lastName = this.user.lastName
+    let email = this.user.email
+    let password = this.user.password
+    let frequency = this.user.frequency
+    let imageUrl = this.user.imageUrl
+    let category = this.user.category
 
     this._landingService.signup(firstName, lastName, email, password, frequency, imageUrl, category)
       .subscribe(
         response => {
           console.log("Response from signup ", response)
+        }
+      )
+  }
+
+  login() {
+    let email = this._loginEmail
+    let password = this._loginPassword
+
+    this._landingService.login(email, password)
+      .subscribe(
+        response => {
+          console.log("Response from login ", response)
         }
       )
   }
