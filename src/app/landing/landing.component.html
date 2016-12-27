@@ -12,9 +12,27 @@
 <md-card class="card">
    <md-card-title>Sign Up</md-card-title>   
    <md-card-content>
-        <p>This is supporting text.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad</p>
+        
+     <form>
+      <md-input-container style="width: 90%">
+        <input md-input placeholder="Email" value="" [(ngModel)]="signupEmail">
+      </md-input-container>
+
+      <table style="width: 100%" cellspacing="0"><tr>
+        <td><md-input-container style="width: 80%">
+          <input md-input placeholder="First name" [(ngModel)]="signupFirstName">
+        </md-input-container></td>
+        <td><md-input-container style="width: 80%">
+          <input md-input placeholder="Last Name" [(ngModel)]="signupLastName">
+        </md-input-container></td>
+      </tr></table>
+
+      <md-input-container style="width: 90%">
+        <input md-input placeholder="Password" value="" [(ngModel)]="signupPassword">
+      </md-input-container>
+
+    </form>
+
    </md-card-content>
    <md-card-actions>
         <button md-button md-raised>Sign Up</button>
@@ -24,9 +42,20 @@
 <md-card class="card">
    <md-card-title>Login</md-card-title>   
    <md-card-content>
-        <p>This is supporting text.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad</p>
+
+      <form>
+        <md-input-container style="width: 80%">
+          <input md-input placeholder="Email" value="" [(ngModel)]="loginEmail">
+        </md-input-container>
+
+        <br />
+
+        <md-input-container style="width: 80%">
+          <input md-input placeholder="Password" value="" [(ngModel)]="loginPassword">
+        </md-input-container>
+
+      </form>
+
    </md-card-content>
    <md-card-actions>
         <button md-button md-raised>Login</button>
