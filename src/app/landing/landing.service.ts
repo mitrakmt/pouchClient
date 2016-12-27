@@ -7,12 +7,15 @@ export class LandingService {
 
   constructor(public http: Http) { }
 
-  signup(firstName, lastName, email, password): Observable<any> {
+  signup(firstName, lastName, email, password, frequency, imageUrl, category): Observable<any> {
     let body = {
       firstName: firstName,
       lastName: lastName,
       email: email,
-      password: password
+      password: password,
+      frequency: frequency,
+      profileImageUrl: imageUrl,
+      categorySelected: category
     }
     return this.http.post('/api/users/signup', body)
       .map(Response => {
